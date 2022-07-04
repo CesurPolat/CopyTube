@@ -4,7 +4,7 @@ import 'package:copytube/main.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-//import 'package:image_picker/image_picker.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Auth extends StatefulWidget {
   //const Auth({ Key? key }) : super(key: key);
@@ -95,8 +95,8 @@ class _AuthState extends State<Auth> {
             children: [
               Text("Register",style: TextStyle(color: Colors.white,fontSize: 36.0),textAlign: TextAlign.center,),
               IconButton(onPressed: () async {
-                /* final ImagePicker _picker = ImagePicker();
-                final XFile? image = await _picker.pickImage(source: ImageSource.gallery); */
+                final ImagePicker _picker = ImagePicker();
+                final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
               }, icon: CircleAvatar(backgroundColor: Colors.red,),),
               TextButton(onPressed: (){
                 pageIndex=0;
