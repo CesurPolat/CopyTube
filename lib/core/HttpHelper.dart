@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 
 //var api = "http://3.87.60.121/";
-var api="https://localhost:5001/";
+var api="https://localhost:7232/";
 
 Future<Map> Get(String url) async {
   var resp = await http.get(Uri.parse(api + url));
@@ -11,8 +11,12 @@ Future<Map> Get(String url) async {
   Map<String, dynamic> list = ((jsonDecode(resp
       .body) /* as List*/)) /* .map((e) => e as Map<String,dynamic>).toList() */;
   //print("aaa"+list["data"][0]["profilePhoto"].toString());
-  print(list["data"][0]["thumbnail"].toString());
+  //print(list["data"][0]["thumbnail"].toString());
   return list;
+}
+
+void ViewVideo(){
+  
 }
 
 
