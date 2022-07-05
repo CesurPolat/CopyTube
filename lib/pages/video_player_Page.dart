@@ -12,26 +12,37 @@ class VideoPlayerPage extends StatefulWidget {
 
 class _VideoPlayerPageState extends State<VideoPlayerPage> {
   late VideoPlayerController _controller;
+  var api = "http://3.87.60.121/";
+  //var api="https://localhost:7232/";
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(
-        'https://localhost:7232/videos/'+widget.videoId)
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
+    _controller =
+        VideoPlayerController.network(api+'videos/' + widget.videoId)
+          ..initialize().then((_) {
+            // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+            setState(() {});
+          });
+    _controller.play();
+
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Container(
+        alignment: Alignment.topCenter,
         child: _controller.value.isInitialized
             ? AspectRatio(
                 aspectRatio: _controller.value.aspectRatio,
-                child: VideoPlayer(_controller),
+                child: Stack(children: [
+                   VideoPlayer(_controller),
+                   Align(alignment: Alignment.bottomRight,
+                   child: ElevatedButton(onPressed: () {
+                     
+                   }, child: Text("ss")),)
+                ],),
               )
             : Container(),
       ),

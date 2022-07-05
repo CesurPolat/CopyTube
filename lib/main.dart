@@ -3,6 +3,7 @@ import 'package:copytube/core/TokenHelper.dart';
 import 'package:copytube/pages/account.dart';
 import 'package:copytube/pages/home.dart';
 import 'package:copytube/pages/library.dart';
+import 'package:copytube/pages/upload.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -40,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final screens = [
     Home(),
-    Library(),
+    Upload(),
     Library(),
   ];
 
