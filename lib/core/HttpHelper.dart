@@ -24,7 +24,7 @@ Future UploadVideo(XFile thumbnail,XFile video) async {
   resp.files.add(http.MultipartFile.fromBytes('video', List.from(await video.readAsBytes()),filename: video.name));
   resp.headers["Content-type"]="multipart/form-data";
   resp.headers["Authorization"]="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJuYmYiOjE2NTcwMTkzMjksImV4cCI6MTY1NzEwNTcyOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0LyJ9.frpeRHA7G16DvibDldmKJEYoVcmLm4Eb--B8iHWIa3g";
-  resp.send().then((value) => print("Http"+value.toString()));
+  resp.send().then((value) => print("Http"+value.statusCode.toString()));
   /*,headers: {'Content-type': 'multipart/form-data','Authorization':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJuYmYiOjE2NTcwMTkzMjksImV4cCI6MTY1NzEwNTcyOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0LyJ9.frpeRHA7G16DvibDldmKJEYoVcmLm4Eb--B8iHWIa3g'},
   body: jsonEncode({
     "Title":"Test From Flutter",

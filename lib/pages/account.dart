@@ -1,4 +1,5 @@
 
+import 'package:copytube/main.dart' as mainPage;
 import 'package:copytube/pages/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:copytube/core/TokenHelper.dart';

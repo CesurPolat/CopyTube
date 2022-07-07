@@ -1,8 +1,8 @@
-
 import 'package:copytube/core/TokenHelper.dart';
 import 'package:copytube/pages/account.dart';
 import 'package:copytube/pages/home.dart';
 import 'package:copytube/pages/library.dart';
+import 'package:copytube/pages/profile.dart';
 import 'package:copytube/pages/upload.dart';
 import 'package:flutter/material.dart';
 
@@ -39,21 +39,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int currentIndex = 0;
 
-  final screens = [
-    Home(),
-    Upload(),
-    Library(),
-  ];
+  final screens = [Home(), Upload(), Library(), Profile()];
 
 
   @override
-  void initState() {
-  }
+  void initState() {}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Container(
           alignment: Alignment.centerLeft,
           height: 25,
@@ -77,11 +72,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     return IndexedStack(
                       index: snap.data,
                       children: [
-                       Icon(Icons.account_circle_outlined),
+                        Icon(Icons.account_circle_outlined),
                         CircleAvatar(
-                           backgroundImage: NetworkImage(
-                          "https://yt3.ggpht.com/yti/APfAmoEeNScZ5fEyOw7apzaChJuGCz3NlnJ30XI1VByx8w=s88-c-k-c0x00ffffff-no-rj-mo"),
-                       ),
+                          backgroundImage: NetworkImage(
+                              "https://yt3.ggpht.com/yti/APfAmoEeNScZ5fEyOw7apzaChJuGCz3NlnJ30XI1VByx8w=s88-c-k-c0x00ffffff-no-rj-mo"),
+                        ),
                       ],
                     );
                   },
@@ -89,22 +84,23 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
         backgroundColor: Color(0xff181818),
-      ),
+      ),*/
       body: IndexedStack(index: currentIndex, children: screens),
       backgroundColor: Color(0xff202020),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) => setState(() => currentIndex = index),
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xff181818),
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white,
         currentIndex: currentIndex,
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: "Home"),
+              icon: Icon(Icons.home_outlined), label: "Home",activeIcon: Icon(Icons.home_rounded)),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add_circle_outline), label: "Add"),
+              icon: Icon(Icons.add_circle_outline), label: "Add",activeIcon: Icon(Icons.add_circle)),
           BottomNavigationBarItem(
-              icon: Icon(Icons.video_library), label: "Library"),
+              icon: Icon(Icons.video_library_outlined), label: "Library",activeIcon: Icon(Icons.video_library)),
         ],
       ),
     );
